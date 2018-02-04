@@ -1,0 +1,13 @@
+{% extends '../layout.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block head %}
+{% parent %}
+<link rel="stylesheet" href="/static/css/test.css">
+{% endblock%}
+
+{% block content %}
+<p>this is a p tag {{ content }}</p>
+{% endblock %}

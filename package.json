@@ -4,5 +4,8 @@
   "dependencies": {
     "express": "^4.16.2",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5"
   }
 }
