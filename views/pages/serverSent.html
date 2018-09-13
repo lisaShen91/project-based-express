@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>server-sent event</title>
+</head>
+<body>
+    <div >
+        <button id="btn1">停止</button>
+        <span>servertime</span>
+        <div id="div1"></div>
+    </div>
+    <script>
+        window.onload = function() {
+            var div1 = document.getElementById('div1'),
+				btn1 = document.getElementById('btn1');
+			
+            if (typeof(EventSource) !== 'undefined') {
+				var source =  new EventSource('/datas/test.js');
+				btn1.onclick = function() {
+					source.close();
+				};
+				source.onmessage = function(e) {
+					div1.innerHTML = e.data;
+				};
+				source.onclose = function() {
+                    alert('stop');
+				}
+            } else {
+				div1.innerHTML = 'none support EventSource';
+            }
+		}
+    </script>
+</body>
+</html>

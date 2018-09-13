@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web workers</title>
+</head>
+<body>
+<p>web worker 是运行在后台的 JavaScript，不会影响页面的性能。</p>
+    <div id="div1">计数：<output id="result"></output> </div>
+    <button id="start">启动</button>
+    <button id="stop">停止</button>
+    <script>
+        window.onload = function() {
+        	var w;
+            var div1 = document.getElementById('div1'),
+				start = document.getElementById('start'),
+				stop = document.getElementById('stop'),
+				result = document.getElementById('result');
+            
+            start.onclick = function() {
+				if (typeof(Worker) === 'undefined') {
+					result.innerHTML = "not support web workers";
+				} else {
+					if (typeof(w) === 'undefined') {
+						w = new Worker('/static/js/pages/demo_worker.js');
+					}
+					w.onmessage = function(e) {
+						console.log(e.data);
+                        result.innerHTML = e.data;
+					};
+				}
+			};
+			stop.onclick = function() {
+				w.terminate();
+			};
+		}
+    </script>
+</body>
+</html>

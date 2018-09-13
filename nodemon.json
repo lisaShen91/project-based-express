@@ -1,6 +1,7 @@
 {
   "watch": [
-    "static/css",
-    "views/"
+    "server.js",
+    "router/",
+    "views/*"
   ]
 }

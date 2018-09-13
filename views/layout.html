@@ -5,11 +5,14 @@
     <title>{% block title %}My Site{% endblock %}</title>
     
     {% block head %}
-    <link rel="stylesheet" href="static/css/test.css">
+    <link rel="stylesheet" href="static/css/test.css" />
     {% endblock %}
 </head>
 <body>
 {% block content %} aaa {% endblock %}
-{% block script %} {% endblock %}
+{% block js %}
+<script src="/static/js/all.js"></script>
+{% endblock %}
+<!--<script src="/static/js/pages/page1.js"></script>-->
 </body>
 </html>

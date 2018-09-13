@@ -6,8 +6,24 @@
 {% block head %}
 {% parent %}
 <link rel="stylesheet" href="/static/css/test.css">
-{% endblock%}
+{% endblock %}
 
 {% block content %}
-<p>this is a p tag {{ content }}</p>
+{% set name = req.path %}
+<p>this is a p tag {{ content | content }}, {{ name }}, I have {{ utils.add(0) }} {{ utils.toZH('apple') }} </p>
+{% endblock %}
+
+{% block js %}
+{% parent %}
+<!--<script src="/static/js/pages/page1.js"></script>-->
+<script>
+	require(['static/js/pages/page1'], function(Instance) {
+		var instance = new Instance({
+            name: 'lisa',
+            age: '29'
+        });
+		console.log(instance._data);
+		console.log('list: ', instance);
+	})
+</script>
 {% endblock %}

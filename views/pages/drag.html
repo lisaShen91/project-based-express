@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生代码实现get和post</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<div>
+    <div id="div1" class="container">
+        <ul>
+            <li>1214151</li>
+        </ul>
+    </div>
+    <p id="drag1" class="drag-element" draggable="true">hello</p>
+    <div id="div2" class="container">
+        <ul></ul>
+    </div>
+</div>
+<script>
+	window.onload = function() {
+		var div1 = document.getElementById("div1"),
+			div2 = document.getElementById("div2"),
+			drag1 = document.getElementById("drag1");
+		div1.ondragover = function(e) {
+			e.preventDefault();
+			allowDrop(e);
+		};
+		div1.ondrop = function(e) {
+			drop(e);
+		};
+		div2.ondragover = function(e) {
+			e.preventDefault();
+			allowDrop(e);
+		};
+		div2.ondrop = function(e) {
+			drop(e);
+		};
+		drag1.ondragstart = function(e) {
+			drag(e);
+		};
+		function allowDrop(e) {
+			e.preventDefault();
+		}
+		function drag(e) {
+			e.dataTransfer.setData("Text", e.target.id);
+		}
+		function drop(e) {
+			e.preventDefault();
+			var data = e.dataTransfer.getData("Text");
+			var child = document.getElementById(data);
+			var target = e.target;
+			var uls = target.getElementsByTagName('ul'),
+                ul = uls[0];
+			if (ul) {
+				var li = document.createElement('li');
+				li.appendChild(child);
+				ul.appendChild(li);
+            } else {
+				e.target.appendChild();
+			}
+		}
+	}
+</script>
+</body>
+</html>

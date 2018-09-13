@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+
+普通表格
+<h6>横向标题</h6>
+<table border="1">
+    <tr>
+        <th>name</th> <th>age</th>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td>
+    </tr>
+</table>
+<h6>竖向标题</h6>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <td>1</td>
+    </tr>
+    <tr>
+        <th>age</th>
+        <td>2</td>
+    </tr>
+</table>
+
+<h6>带标题的表格</h6>
+<table>
+    <caption>Monthly savings</caption>
+    <tr>
+        <td>name</td>
+        <td>age</td>
+        <td>name</td>
+        <td>age</td>
+    </tr>
+</table>
+
+<h6>合并单元格</h6>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <td>1</td>
+    </tr>
+    <tr>
+        <th rowspan="2">tel</th>
+        <td>15201261920</td>
+    </tr>
+    <tr>
+        <td>15201261920</td>
+    </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <th colspan="2">tel</th>
+        <th>age</th>
+    </tr>
+    <tr>
+        <td>15201261920</td>
+        <td>15201261920</td>
+        <td>29</td>
+    </tr>
+</table>
+<p>
+    标签
+    table 表格外层
+    tr 行
+    td 单元格
+    th 表头
+    caption 表格标题
+    colgroup 表格列的组
+    col 列
+    thead 表格的页眉
+    tbody 表格的主体
+    tfoot 表格的页脚
+    常用属性
+    列属性
+    colspan  跨列合并单元格
+    rowspan 跨行合并单元格
+    width
+    height
+    表格属性
+    border  边框 取值数字 不带单位
+    width
+    height
+    cellpadding 单元格内间距 取值数字 不带单位
+    cellspacing 单元格外间距 取值数字 不带单位
+    bgcolor 背景色
+    
+</p>
+
+//高级表格
+<table border="1">
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>lisa</td>
+        <td>29</td>
+    </tr>
+    </tbody>
+    <tfooter>
+        <tr >
+            <td colspan="2">footer</td>
+        </tr>
+    </tfooter>
+</table>
+</body>
+</html>

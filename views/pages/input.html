@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form input</title>
+    <style>
+        ul
+        {
+            list-style: none;
+        }
+        ul>li {
+            margin: 10px;
+        }
+        ul input {
+            padding: 5px 10px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form>
+        <ul>
+            <li>
+                <input type="email" name="email" placeholder="email"/>
+            </li>
+            <li>
+                <input type="url" name="url" placeholder="url"/>
+            </li>
+            <li>
+                <input type="number" name="number" placeholder="number" required min="-1" max="4" step="2" value="3"/>
+            </li>
+            <li>
+                <input type="range" name="range" placeholder="range" required min="1" max="10" />
+            </li>
+            <li>
+                <input type="search" name="search" placeholder="search" required />
+            </li>
+            <li>
+                <input type="color" name="color" placeholder="color"/>
+            </li>
+            <li>
+                <input type="month" name="date" pickers="month" placeholder="datetime"/>
+            </li>
+        </ul>
+        <button id="submit" click="submit">提交</button>
+    </form>
+</div>
+<script>
+	window.onload = function() {
+		var submit = document.getElementById('submit'),
+			form = document.getElementsByTagName('form')[0];
+
+		submit.onclick = function() {
+			$(form).submit();
+		}
+	}
+</script>
+</body>
+</html>
